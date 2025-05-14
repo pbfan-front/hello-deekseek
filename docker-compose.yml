@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  chroma:
+    image: chromadb/chroma:latest
+    environment:
+      - CHROMA_SERVER_CORS_ALLOW_ORIGINS=*
+      - ALLOW_RESET=true
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+
+volumes:
+  chroma_data:
+    driver: local 
